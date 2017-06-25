@@ -33,7 +33,7 @@ document.body.onmousemove = function(evt) {
     paddle.y = evt.clientY;
 }
 
-document.body.addEventListener("touchmove", function(evt) {
+document.getElementById('canvas').addEventListener("touchstart", function(evt) {
     evt.preventDefault();
     if(!paddle) return;
     paddle.x = evt.clientX;
