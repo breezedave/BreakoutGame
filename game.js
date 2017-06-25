@@ -47,6 +47,7 @@ document.body.onclick = function() {
 var preRender = function() {
     var ctxBg = bgCanvas.getContext("2d");
     objects.Background(ctxBg);
+    renderDestructables(ctxBg);
 }
 
 var gameOver = function() {
@@ -67,29 +68,38 @@ var startGame = function() {
     world.playing = true;
     world.readyToStart = false;
     ballMovement();
+    preRender();
     canv.style.cursor = "none";
 }
+
+var renderDestructables = function(ctx) {
+    for(i in destructables) {
+        var o = destructables[i];
+        switch (o.hits) {
+            case 1:
+            o.color = colors.RED;
+            break;
+            case 2:
+            o.color = colors.GREEN;
+            break;
+            case 3:
+            o.color = colors.BLUE;
+            break;
+        }
+        objects.Destructable(ctx, o.x, o.y, o.z, o.w, o.h, o.color);
+    }
+};
 
 var render = function() {
     globalCtx.clearRect(0, 0, canv.width, canv.height);
     globalCtx.drawImage(bgCanvas, 0, 0);
 
     if(world.playing) {
-        for(i in destructables) {
-            var o = destructables[i];
-            switch (o.hits) {
-                case 1:
-                o.color = colors.RED;
-                break;
-                case 2:
-                o.color = colors.GREEN;
-                break;
-                case 3:
-                o.color = colors.BLUE;
-                break;
-            }
-            objects.Destructable(globalCtx, o.x, o.y, o.z, o.w, o.h, o.color);
-        }
+        if(ball.z >= 98) {
+            globalCtx.clearRect(0, 0, canv.width, canv.height);
+            preRender();
+            globalCtx.drawImage(bgCanvas, 0, 0);
+        };
 
         objects.Ball(globalCtx, ball.x, ball.y, 100, ball.w, ball.w, colors.SHADOW);
         objects.WallLines(globalCtx, ball.z);
