@@ -33,12 +33,12 @@ document.body.onmousemove = function(evt) {
     paddle.y = evt.clientY;
 }
 
-document.body.ondragover = function(evt) {
+document.body.addEventListener("touchmove", function(evt) {
     evt.preventDefault();
     if(!paddle) return;
     paddle.x = evt.clientX;
     paddle.y = evt.clientY;
-}
+}, false);
 
 document.body.onclick = function() {
     if(!world.playing) startGame();
