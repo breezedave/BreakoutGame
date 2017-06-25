@@ -27,7 +27,7 @@ var setPaddle = function() {
     }
 }
 
-document.body.onmousestart = function(evt) {
+document.body.onmousemove = function(evt) {
     evt.preventDefault();
     if(!paddle) return;
     paddle.x = evt.clientX;
