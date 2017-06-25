@@ -33,6 +33,13 @@ document.body.onmousemove = function(evt) {
     paddle.y = evt.clientY;
 }
 
+document.body.ondragover = function(evt) {
+    evt.preventDefault();
+    if(!paddle) return;
+    paddle.x = evt.clientX;
+    paddle.y = evt.clientY;
+}
+
 document.body.onclick = function() {
     if(!world.playing) startGame();
 }
