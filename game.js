@@ -27,21 +27,21 @@ var setPaddle = function() {
     }
 }
 
-document.body.onmousemove = function(evt) {
+document.getElementById('canvas').onmousemove = function(evt) {
     mouseStuff(evt);
 }
 
-document.body.addEventListener("touchstart", function(evt) {
+document.getElementById('canvas').addEventListener("touchstart", function(evt) {
     if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
-document.body.addEventListener("touchmove", function(evt) {
+document.getElementById('canvas').addEventListener("touchmove", function(evt) {
     if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
-document.body.addEventListener("touchend", function(evt) {
+document.getElementById('canvas').addEventListener("touchend", function(evt) {
     if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
