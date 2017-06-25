@@ -27,19 +27,12 @@ var setPaddle = function() {
     }
 }
 
-document.body.onmousemove = function(evt) {
-    if(!paddle) return;
-    paddle.x = evt.clientX;
-    paddle.y = evt.clientY;
-}
-
-window.addEventListener("touchstart", function(evt) {
-    alert('a');
+document.body.onmousestart = function(evt) {
     evt.preventDefault();
     if(!paddle) return;
     paddle.x = evt.clientX;
     paddle.y = evt.clientY;
-}, false);
+}
 
 document.body.onclick = function() {
     if(!world.playing) startGame();
