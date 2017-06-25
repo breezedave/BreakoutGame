@@ -1,0 +1,17 @@
+var colors = {
+    BLACK: "RGBA(0, 0, 0, 1)"
+    , BACK_WALL: "RGBA(50, 50, 50, 1)"
+    , FLOOR: "RGBA(90, 90, 90, 1)"
+    , SIDE_WALL: "RGBA(90, 90, 90, 1)"
+    , WALL_LINE: "RGBA(255, 0, 0, 1)"
+    , WALL_LINE_GLOW: "RGBA(240, 0, 0, 0.1)"
+    , SHADOW: "RGBA(0, 0, 0, 0.25)"
+    , RED: "RGBA(200, 10, 10, 0.75)"
+    , GREEN: "RGBA(10, 200, 10, 0.75)"
+    , BLUE: "RGBA(10, 10, 200, 0.75)"
+    , BALL: "RGBA(255, 50, 50, 1)"
+    , WHITE: "RGBA(255, 255, 255, 0.9)"
+    , GLASS: "RGBA(255, 255, 255, 0.3)"
+    , PADDLE: "RGBA(244, 158, 66, 0.5)"
+    , PADDLE_OUTLINE: "RGBA(244, 158, 66, 0.75)"
+}
