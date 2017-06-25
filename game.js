@@ -28,14 +28,22 @@ var setPaddle = function() {
 }
 
 document.body.onmousemove = function(evt) {
+    mouseStuff(evt);
+}
+
+window.addEventListener("touchstart", function(evt) {
+    mouseStuff(evt);
+});
+
+document.body.onclick = function() {
+    if(!world.playing) startGame();
+}
+
+var mouseStuff = function(evt) {
     evt.preventDefault();
     if(!paddle) return;
     paddle.x = evt.clientX;
     paddle.y = evt.clientY;
-}
-
-document.body.onclick = function() {
-    if(!world.playing) startGame();
 }
 
 var preRender = function() {
