@@ -32,17 +32,10 @@ document.getElementById('canvas').onmousemove = function(evt) {
 }
 
 document.getElementById('canvas').addEventListener("touchstart", function(evt) {
-    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
 document.getElementById('canvas').addEventListener("touchmove", function(evt) {
-    if(!world.playing) startGame();
-    mouseStuff(evt);
-}, false);
-
-document.getElementById('canvas').addEventListener("touchend", function(evt) {
-    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
@@ -52,9 +45,10 @@ document.body.onclick = function() {
 
 var mouseStuff = function(evt) {
     evt.preventDefault();
+    if(!world.playing) startGame();
     if(!paddle) return;
-    paddle.x = evt.clientX;
-    paddle.y = evt.clientY;
+    paddle.x = evt.clientX || evt.targetTouches[0].clientX;
+    paddle.y = evt.clientY || evt.targetTouches[0].clientY;
 }
 
 var preRender = function() {
