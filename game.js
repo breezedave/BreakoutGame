@@ -31,9 +31,17 @@ document.body.onmousemove = function(evt) {
     mouseStuff(evt);
 }
 
-window.addEventListener("touchstart", function(evt) {
+document.body.addEventListener("touchstart", function(evt) {
     mouseStuff(evt);
-});
+}, false);
+
+document.body.addEventListener("touchmove", function(evt) {
+    mouseStuff(evt);
+}, false);
+
+document.body.addEventListener("touchend", function(evt) {
+    mouseStuff(evt);
+}, false);
 
 document.body.onclick = function() {
     if(!world.playing) startGame();
