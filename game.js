@@ -32,14 +32,17 @@ document.body.onmousemove = function(evt) {
 }
 
 document.body.addEventListener("touchstart", function(evt) {
+    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
 document.body.addEventListener("touchmove", function(evt) {
+    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
 document.body.addEventListener("touchend", function(evt) {
+    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
