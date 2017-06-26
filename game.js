@@ -32,20 +32,22 @@ document.getElementById('canvas').onmousemove = function(evt) {
 }
 
 document.getElementById('canvas').addEventListener("touchstart", function(evt) {
+    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
 document.getElementById('canvas').addEventListener("touchmove", function(evt) {
+    if(!world.playing) startGame();
     mouseStuff(evt);
 }, false);
 
 document.body.onclick = function() {
     if(!world.playing) startGame();
+    if(!world.playing) startGame();
 }
 
 var mouseStuff = function(evt) {
     evt.preventDefault();
-    if(!world.playing) startGame();
     if(!paddle) return;
     paddle.x = evt.clientX || evt.targetTouches[0].clientX;
     paddle.y = evt.clientY || evt.targetTouches[0].clientY;
